@@ -122,6 +122,8 @@ header p {
     color: #374151;
     cursor: pointer;
     transition: all 0.2s ease;
+    min-height: 36px; /* 較小但仍觸控友善的高度 */
+    -webkit-tap-highlight-color: transparent;
 }
 
 .reminder-control-btn:hover {
@@ -213,6 +215,8 @@ header p {
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
+    min-height: 48px; /* 觸控友善的最小高度 */
+    -webkit-tap-highlight-color: transparent; /* 移除 iOS 點擊高亮 */
 }
 
 .generate-btn:hover {
@@ -222,6 +226,20 @@ header p {
 
 .generate-btn:active {
     transform: translateY(0);
+    background: linear-gradient(135deg, #5a6fd8 0%, #6a4190 100%);
+}
+
+/* 觸控設備特殊樣式 */
+@media (hover: none) and (pointer: coarse) {
+    .generate-btn:hover {
+        transform: none;
+        box-shadow: none;
+    }
+    
+    .generate-btn:active {
+        transform: scale(0.98);
+        background: linear-gradient(135deg, #5a6fd8 0%, #6a4190 100%);
+    }
 }
 
 /* 結果區域 */
@@ -254,6 +272,8 @@ header p {
     cursor: pointer;
     transition: all 0.3s ease;
     font-weight: 500;
+    min-height: 44px; /* 觸控友善高度 */
+    -webkit-tap-highlight-color: transparent;
 }
 
 .copy-btn {
@@ -328,14 +348,40 @@ footer {
 }
 
 /* 響應式設計 */
+
+/* 平板裝置 (768px - 1024px) */
+@media (max-width: 1024px) and (min-width: 769px) {
+    .container {
+        padding: 18px;
+    }
+    
+    .main-content {
+        gap: 25px;
+    }
+    
+    .input-section,
+    .result-section {
+        padding: 22px;
+    }
+}
+
+/* 小型平板和大型手機 (481px - 768px) */
 @media (max-width: 768px) {
     .main-content {
         grid-template-columns: 1fr;
         gap: 20px;
     }
     
+    header {
+        padding: 25px 20px;
+    }
+    
     header h1 {
         font-size: 2em;
+    }
+    
+    header p {
+        font-size: 1em;
     }
     
     .container {
@@ -349,9 +395,144 @@ footer {
     
     .result-controls {
         flex-direction: column;
+        gap: 8px;
     }
     
     .copy-btn, .clear-btn {
         width: 100%;
+        padding: 12px;
+    }
+    
+    .reminder-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    
+    .reminder-controls {
+        width: 100%;
+        justify-content: flex-end;
+    }
+    
+    .reminder-options {
+        max-height: 250px;
+    }
+    
+    .generate-btn {
+        padding: 18px;
+        font-size: 18px;
+    }
+}
+
+/* 手機裝置 (320px - 480px) */
+@media (max-width: 480px) {
+    .container {
+        padding: 10px;
+    }
+    
+    header {
+        padding: 20px 15px;
+        margin-bottom: 20px;
+    }
+    
+    header h1 {
+        font-size: 1.8em;
+        margin-bottom: 8px;
+    }
+    
+    header p {
+        font-size: 0.9em;
+    }
+    
+    .input-section,
+    .result-section {
+        padding: 15px;
+    }
+    
+    .input-section h2,
+    .result-section h2 {
+        font-size: 1.3em;
+        margin-bottom: 15px;
+    }
+    
+    .form-group {
+        margin-bottom: 18px;
+    }
+    
+    .form-group input[type="text"],
+    .form-group select,
+    .form-group textarea {
+        padding: 14px;
+        font-size: 16px; /* 防止 iOS 縮放 */
+    }
+    
+    .reminder-options {
+        max-height: 200px;
+        padding: 12px;
+    }
+    
+    .checkbox-label {
+        font-size: 13px;
+        margin-bottom: 10px;
+    }
+    
+    .reminder-control-btn {
+        padding: 6px 14px;
+        font-size: 13px;
+    }
+    
+    .generate-btn {
+        padding: 20px;
+        font-size: 18px;
+        font-weight: 700;
+    }
+    
+    #result-text {
+        min-height: 300px;
+        font-size: 13px;
+        line-height: 1.5;
+    }
+    
+    .copy-feedback {
+        top: 10px;
+        right: 10px;
+        left: 10px;
+        text-align: center;
+    }
+    
+    footer {
+        padding: 15px;
+        margin-top: 20px;
+    }
+    
+    footer p {
+        font-size: 0.9em;
+        margin-bottom: 5px;
+    }
+}
+
+/* 超小型手機 (最大 320px) */
+@media (max-width: 320px) {
+    header h1 {
+        font-size: 1.6em;
+    }
+    
+    .input-section,
+    .result-section {
+        padding: 12px;
+    }
+    
+    .reminder-options {
+        max-height: 180px;
+        padding: 10px;
+    }
+    
+    .checkbox-label {
+        font-size: 12px;
+    }
+    
+    .generate-btn {
+        padding: 16px;
+        font-size: 16px;
     }
 }

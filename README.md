@@ -47,8 +47,15 @@
 
 ## 技術實作
 
-- 純前端技術：HTML5 + CSS3 + Vanilla JavaScript
-- 適用於 GitHub Pages 靜態部署
-- 無需後端伺服器
-- 支援現代瀏覽器的剪貼簿 API
+- **純前端技術**：HTML5 + CSS3 + Vanilla JavaScript
+- **靜態網站**：適用於 GitHub Pages 部署，無需後端伺服器
+- **響應式設計**：使用 CSS Media Queries 實現多裝置適配
+  - 桌面版 (1024px+)：左右分欄佈局
+  - 平板版 (768px-1024px)：優化間距和字體大小
+  - 手機版 (320px-768px)：單欄佈局，觸控友善介面
+- **觸控優化**：
+  - 最小點擊區域 44px（符合 Apple 和 Google 指南）
+  - 移除 iOS 點擊高亮效果
+  - 防止 iOS 自動縮放（font-size: 16px）
+- **跨瀏覽器相容**：支援現代瀏覽器的剪貼簿 API
 
