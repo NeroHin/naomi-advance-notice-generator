@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>行前通知生成器</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>行前通知生成器</h1>
+            <p>快速生成專業的活動行前通知文字</p>
+        </header>
+        
+        <div class="main-content">
+            <!-- 左側輸入區域 -->
+            <div class="input-section">
+                <h2>設定活動資訊</h2>
+                
+                <div class="form-group">
+                    <label for="activity-name">活動名稱</label>
+                    <input type="text" id="activity-name" placeholder="請輸入活動名稱">
+                </div>
+                
+                <div class="form-group">
+                    <label for="activity-template">行前活動內容</label>
+                    <select id="activity-template">
+                        <option value="">請選擇模板</option>
+                        <option value="workshop">工作坊/研習會</option>
+                        <option value="meeting">會議/討論會</option>
+                        <option value="event">活動/聚會</option>
+                        <option value="training">培訓/課程</option>
+                        <option value="conference">會議/論壇</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="activity-content">內容編輯</label>
+                    <textarea id="activity-content" rows="8" placeholder="選擇模板後可在此編輯內容"></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <div class="reminder-header">
+                        <label>活動提醒選項</label>
+                        <div class="reminder-controls">
+                            <button type="button" id="select-all-reminders" class="reminder-control-btn">全選</button>
+                            <button type="button" id="clear-all-reminders" class="reminder-control-btn">清除</button>
+                        </div>
+                    </div>
+                    <div class="reminder-options">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="reminder-punctual" value="punctual">
+                            <span class="checkmark"></span>
+                            請準時抵達並攜帶必要證件或物品
+                        </label>
+                        
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="reminder-dress" value="dress">
+                            <span class="checkmark"></span>
+                            請著裝整齊舒適，符合一般場合需求
+                        </label>
+                        
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="reminder-equipment" value="equipment">
+                            <span class="checkmark"></span>
+                            建議攜帶筆電、充電器或筆記本以便記錄
+                        </label>
+                        
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="reminder-preparation" value="preparation">
+                            <span class="checkmark"></span>
+                            請事先閱讀相關資料並做好準備
+                        </label>
+                        
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="reminder-catering" value="catering">
+                            <span class="checkmark"></span>
+                            活動將提供餐飲或茶點，建議自備環保餐具
+                        </label>
+                        
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="reminder-outdoor" value="outdoor">
+                            <span class="checkmark"></span>
+                            若有戶外環節，請注意防曬並攜帶雨具
+                        </label>
+                        
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="reminder-phone" value="phone">
+                            <span class="checkmark"></span>
+                            請將手機調整至靜音或震動模式
+                        </label>
+                    </div>
+                </div>
+                
+                <button id="generate-btn" class="generate-btn">生成行前通知</button>
+            </div>
+            
+            <!-- 右側結果區域 -->
+            <div class="result-section">
+                <h2>生成結果</h2>
+                <div class="result-controls">
+                    <button id="copy-btn" class="copy-btn" disabled>複製文字</button>
+                    <button id="clear-btn" class="clear-btn">清除內容</button>
+                </div>
+                <textarea id="result-text" rows="20" placeholder="點擊「生成行前通知」按鈕來產生內容"></textarea>
+                <div id="copy-feedback" class="copy-feedback">已複製到剪貼簿！</div>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <p>© 2025 行前通知生成器 - 讓活動通知更簡單</p>
+        <p> 為 Naomi Huang <3 而開發</p>
+    </footer>
+    
+    <script src="script.js"></script>
+</body>
+</html>
